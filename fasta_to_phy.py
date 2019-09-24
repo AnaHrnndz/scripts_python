@@ -1,5 +1,5 @@
-import random, string
 import sys
+import random, string
 from ete3 import SeqGroup
 from tempfile import NamedTemporaryFile
 
@@ -14,9 +14,10 @@ translate=open(transform_fasta, 'w')
 for num,(name,seq,_) in enumerate(alg):
     taxid=name.split('.')[0]
     code=''.join(random.choices(string.ascii_letters + string.digits, k=5))
+    #code=format((num+1), '05')
     #nam_t=taxid+'.'+str(code)
-    print ('>%s\n%s'%(code, seq), file = translate)
-    print ('%s\t%s'%(name, code), file = translate_table)
+    print  >>translate, '>%s\n%s'%(code, seq)
+    print >>translate_table, '%s\t%s'%(name, code)
     
 translate_table.close()    
 translate.close()

@@ -25,6 +25,10 @@ for num, leaf in enumerate(tree):
 pruned_list=name_list[star_pos:(end_pos+1)]
 print pruned_list
 
-for ele in pruned_list:
-    print >>pruned_fasta,">%s\n%s"%(ele, original_fasta.get_seq(ele))
+#for ele in pruned_list:
+#    print >>pruned_fasta,">%s\n%s"%(ele, original_fasta.get_seq(ele))
+    
+for ele in name_list:
+    if ele not in pruned_list:
+        print >>pruned_fasta,">%s\n%s"%(ele, original_fasta.get_seq(ele))
 
