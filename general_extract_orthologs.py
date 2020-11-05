@@ -41,7 +41,11 @@ def process_tree(treepath):
             
             else:
                 sys.stderr.write(treefile+'len(t) != 1'+'\n')
-                return ([],[])
+                l = t.get_leaf_names()
+                r = l[0]
+                t.set_outgroup(r)
+                pass
+                #return ([],[])
                 #return  (['None', 'None'] ,[['None', 'None']])
         else:
             if len(t) == 1:

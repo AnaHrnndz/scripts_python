@@ -14,4 +14,4 @@ for k,v in alg.name2id.items():
 
 tree = Tree(tree_file)
 for leaf in tree:
-    print ">%s\n%s" %(leaf.name, alg.get_seq(leaf.name))
+    print (">%s\n%s" %(leaf.name, alg.get_seq(leaf.name)))
